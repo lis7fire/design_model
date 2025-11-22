@@ -17,4 +17,9 @@ public enum EnumSingle {
         return INSTANCE;
     }
 
+    // ====== 重要理解： 所有的单例，这里都是写这个单例对象的功能方法 public ，然后通过 EnumSingle.INSTANCE.doSomething(); 调佣 ========================================
+    public void doSomething() {
+        System.out.println("doSomething");
+    }
+
 }
