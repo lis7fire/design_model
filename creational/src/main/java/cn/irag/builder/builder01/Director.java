@@ -4,7 +4,7 @@ package cn.irag.builder.builder01;
 public class Director {
 
     //指挥【建造者】【按照规定顺序】制作产品
-    public Product build(Builder builder){
+    public Product build(AbstractBuilder builder){
         builder.buildPartB();
         builder.buildPartA();
         builder.buildPartC();

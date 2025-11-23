@@ -1,14 +1,36 @@
 package cn.irag.builder.builder02;
 
-public abstract class Builder2 {
+// 升级版：通过 静态内部类 的方式实现零件无序装配构造，让用户当做 指挥者-Director
+// 升级版的方法 能接收参数指令，有返回值，返回值是自己，
+public class Builder2 extends AbstractBuilder2 {
+    // 存放建造的的产品对象
+    private Product2 product;
 
-    // 建造过程分为3个步骤创建产品对象。
-    public abstract Builder2 buildPartA(String msg);
+    public Builder2(){
+        this.product = new Product2();
+    }
 
-    public abstract Builder2 buildPartB(String msg);
+    @Override
+    public AbstractBuilder2 buildPartA(String msg) {
+        product.setPartA(msg);
+        return this;
+    }
 
-    public abstract Builder2 buildPartC(String msg);
+    @Override
+    public AbstractBuilder2 buildPartB(String msg) {
+        product.setPartB(msg);
+        return this;
+    }
 
-    // 建造完成，返回完整产品对象
-    public abstract Product2 getProduct();
+    @Override
+    public AbstractBuilder2 buildPartC(String msg) {
+        product.setPartC(msg);
+        return this;
+    }
+
+    @Override
+    public Product2 getProduct() {
+        return product;
+    }
+
 }

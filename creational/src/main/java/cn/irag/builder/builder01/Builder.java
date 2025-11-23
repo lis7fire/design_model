@@ -1,15 +1,33 @@
 package cn.irag.builder.builder01;
 
-// 抽象的建造者：抽象的建造方法，就是功能
-public abstract class Builder {
+// 一个建造者，拥有多种生成组件的技能，最终可以返回一个完整成品。
+public class Builder extends AbstractBuilder {
+    private Product product;
 
-    // 建造过程分为3个步骤创建产品对象。
-    abstract void buildPartA();
+    public Builder(){
+        product = new Product();
+    }
 
-    abstract void buildPartB();
+    @Override
+    void buildPartA() {
+        product.setPartA("组件A");
+        System.out.println("制造组件...A");
+    }
 
-    abstract void buildPartC();
+    @Override
+    void buildPartB() {
+        product.setPartB("组件B");
+        System.out.println("制造组件...B");
+    }
 
-    // 建造完成，返回完整产品对象
-    abstract Product getProduct();
+    @Override
+    void buildPartC() {
+        product.setPartC("组件C");
+        System.out.println("制造组件...C");
+    }
+
+    @Override
+    Product getProduct() {
+        return product;
+    }
 }
